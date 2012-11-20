@@ -1,11 +1,13 @@
 #!usr/bin/env ruby
 require '../lib/cw_parse_text.rb'
+require '../lib/cw_parse_code.rb'
 
 
 #args to cw_parser: text | code, file, filepath, play code sounds (implement sound later) 
 
 class CW_Parser
- include CW_Parse_Text 
+ include CW_Parse_Text
+ include CW_Parse_Code 
 
  attr_reader :morse_code
 
@@ -21,18 +23,15 @@ class CW_Parser
 	if filepath != nil
     	puts filepath
 
-    	#text_to_morse(@morse_code, :file, ARGV[2])
-
-        #code_to_text(@morse_code, :file, ARGV[2])
-
-	elsif :text == "text"
+	elsif code_or_text == :text
 		puts :text
 		code_or_text = "this is the text to translate!"
 		parse_text(code_or_text)
-		#text_to_morse(@morse_code, :text, ARGV[1])
-	elsif :code == "code"
+		
+	elsif code_or_text == :code
 		puts :code
-		#code_to_text(@morse_code, :code, ARGV[1])
+		code = "this"
+		parse_code(code)
 	end	
  end
 end
