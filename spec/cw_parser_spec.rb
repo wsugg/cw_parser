@@ -31,8 +31,13 @@ describe CW_Parser do
 		@cwp.morse_code["A"].should eq ".-"
 	end
 
-	it "it should parse text" do
+	it "it should parse text into morse code" do
 		text = "this"
 		@cwp.parse_text(text).should eq " - .... .. ..."
+	end
+
+	it "should parse morse code into text" do
+		text = "- .... .. ..."
+		pending 
 	end
 end

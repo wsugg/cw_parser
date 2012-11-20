@@ -13,7 +13,7 @@ class CW_Parser
 	
 	@morse_code = {}
 
-	f = File.open("morsecode.txt", "r")
+	f = File.open("../bin/morsecode.txt", "r")
 	#f.each{|i| puts i.ascii_only?}
 	f.each{|l| l.split(/\=/); @morse_code.store(l[0],l[2..10].chomp)} 
 
