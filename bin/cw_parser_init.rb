@@ -1,4 +1,5 @@
 #!usr/bin/env ruby
+#require "#{File.dirname(__FILE__)}./cw_parse_text.rb"
 require '../lib/cw_parse_text.rb'
 require '../lib/cw_parse_code.rb'
 
@@ -10,28 +11,62 @@ class CW_Parser
  include CW_Parse_Code 
 
  attr_reader :morse_code
+ attr_accessor :mode, :sound, :filepath 
 
- def initialize(code_or_text=[""],filepath="",sound="no")
-	
+ def initialize(mode=[:text],filepath="",sound="no")
+	@mode = mode
+	@filepath = filepath
+	@sound = sound
+
+	puts "filepath: #{filepath}" 
 	@morse_code = {}
 
 	f = File.open("../bin/morsecode.txt", "r")
-	#f.each{|i| puts i.ascii_only?}
 	f.each{|l| l.split(/\=/); @morse_code.store(l[0],l[2..10].chomp)} 
+	#@morse_code.each{|i| puts i}
+ end
+
+ def translate_file(path="")
+ 	if true == File.exist?(path)
+      puts "path: #{path}" 
+      puts "mode= #{@mode}"
+      ftranslate = File.read(path)
+      ftranslate.gsub!(/\n/, " ")
+    
+      if @mode == :text	
+       	puts ftranslate.inspect
+       	parse_text(ftranslate)
+      else 
+      	puts ftranslate.inspect
+       	parse_code(ftranslate)
+      end
+    end
+ end
+
+end
 
 
-	if filepath != nil
-    	puts filepath
 
-	elsif code_or_text == :text
+#puts ftranslate
+#ftranslate.each{|line| puts "text line:" ;line = line.chop; parse_text(line)}
+=begin
+if true == File.exist?(filepath)
+       puts filepath 
+       puts "text_symbol:#{:text} code_or_text:#{code_or_text}"
+        if code_or_text == [:text]
+        	 ftranslate = File.open(filepath, "r")
+        	 ftranslate.each{|line| line = line.chop; parse_text(line)}
+        else ftranslate.each{|line| parse_code(line)}
+        end
+
+	elsif code_or_text == [:text]
 		puts :text
-		code_or_text = "this is the text to translate!"
-		parse_text(code_or_text)
+		#code_or_text = "this is the text to translate!"
+		#parse_text(code_or_text)
 		
-	elsif code_or_text == :code
+	elsif code_or_text == [:code]
 		puts :code
-		code = "this"
+		#code = "this"
 		parse_code(code)
 	end	
- end
-end
+=end

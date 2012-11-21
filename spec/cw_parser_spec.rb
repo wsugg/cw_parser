@@ -1,10 +1,14 @@
  require '~/Fall2012FinalProj/cw_parser/bin/cw_parser_init.rb'
-#require "#{File.dirname(__FILE__)}../cw_parser_init.rb"
+#puts File.dirname(__FILE__)
+#puts" #{File.dirname("/bin/cw_parser_init.rb")}"
+#puts require "#{File.dirname('../'__FILE__)}/cw_parser_init.rb"
 
 describe CW_Parser do 
-	
-	before do
-		@cwp = CW_Parser.new()
+	testfile = "./test.txt"
+	test_code_file = "./test_code.txt"
+
+	before do	
+		@cwp = CW_Parser.new(:text, testfile, "no") #:code
 	end
 
 	it "should create morse code hash" do
@@ -12,19 +16,11 @@ describe CW_Parser do
 	end 
 
 	it "should take code, text as the first arg" do
-		@cwp1 = CW_Parser.new(:text) #:code
-		@cwp1.object_id.should be_true
+	    @cwp.mode.should eq :text
 	end
 
 	it "should take a filepath arg to open a file to translate from text" do
-
-		@cwpf = CW_Parser.new(:text, "./test.txt")
-		@cwpf.object_id.should be_true
-	end
-		it "should take a filepath arg to open a file to translate from code" do
-
-		@cwpf1 = CW_Parser.new(:code, "./test.txt")
-		@cwpf1.object_id.should be_true
+		@cwp.filepath.should eq testfile 
 	end
 
 	it "should have a alphabet and morsecode hash" do
@@ -32,12 +28,26 @@ describe CW_Parser do
 	end
 
 	it "it should parse text into morse code" do
-		text = "this"
-		@cwp.parse_text(text).should eq " - .... .. ..."
+		text = "this is"
+		@cwp.parse_text(text).should eq " - .... .. ...   .. ..."
 	end
 
 	it "should parse morse code into text" do
-		code = "- .... .. ..."
-		@cwp.parse_code(code).should eq "THIS"
+		code = "- .... .. ... .. ..."
+		@cwp.parse_code(code).should eq "THISIS"
+	end
+
+	it "should open a file and translate the text" do
+		@cwp.mode = :text
+		result = ""
+		result = @cwp.translate_file(testfile)
+		result.should eq " - .... .. ...   .. ...   - .... .   - . -..- -   - ---   - .-. .- -. ... .-.. .- - .   .. -.   - .... .   - -..- -   ..-. .. .-.. .   - .... .. ...   .. ...   - .... .   ... . -.-. --- -. -..   .-.. .. -. .   - ---   - .-. .- -. ... .-.. .- - .  "
+	end
+
+		it "should open a file and translate the text" do
+		@cwp.mode = :code
+		result = ""
+		result = @cwp.translate_file(test_code_file)
+		result.should eq "THISISTHETEXTTOTRANSLATEINTHETXTFILETHISISTHESECONDLINETOTRANSLATE"
 	end
 end
