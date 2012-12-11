@@ -8,7 +8,7 @@ module CW_Parse_Code
   result_str = ""
 
   code_to_translate_ary = code_to_translate.split(' ')
-  puts "code to translate array: #{code_to_translate_ary}"
+  #puts "code to translate array: #{code_to_translate_ary}"  #for debugging
   code_to_translate_ary.each{|a| result_str << @morse_code.key(a)}  
   puts "Code:#{code_to_translate_ary}  Morse Code:#{result_str}"
   result_str

@@ -1,7 +1,8 @@
 = cw_parser
 
-Description goes here.
+Takes Morse Code and translates it to text and vise versa.
 
+gem install cw_parser-0.0.1.gem
 == Contributing to cw_parser
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.

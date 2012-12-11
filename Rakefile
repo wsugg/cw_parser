@@ -17,31 +17,13 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cw_parser"
   gem.homepage = "http://github.com/wsugg/cw_parser"
   gem.license = "MIT"
-  gem.summary = %Q{Takes Morse Code and Translates it to Text and vise Versa}
-  gem.description = %Q{Takes Morse Code and Translates it to Text and vise Versa.  Fall UW Ruby Class Final Project.}
+  gem.summary = %Q{Takes Morse Code and translates it to text and vise versa}
+  gem.description = %Q{Takes Morse Code and translates it to text and vise versa.  Fall UW Ruby Class Final Project.}
   gem.email = "sugg.will@gmail.com"
   gem.authors = ["wsugg"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-=begin
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
-=end
-
 
 task :default => :test
 

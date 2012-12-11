@@ -4,8 +4,8 @@
 #puts require "#{File.dirname('../'__FILE__)}/cw_parser_init.rb"
 
 describe CW_Parser do 
-	testfile = "./test.txt"
-	test_code_file = "./test_code.txt"
+	testfile = "../lib/test.txt"
+	test_code_file = "../lib/test_code.txt"
 
 	before do	
 		@cwp = CW_Parser.new(:text, testfile, "no") #:code

@@ -5,13 +5,14 @@
 
 Gem::Specification.new do |s|
   s.name = "cw_parser"
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["wsugg"]
-  s.date = "2012-11-18"
-  s.description = "Takes Morse Code and Translates it to Text and vise Versa.  Fall UW Ruby Class Final Project."
+  s.date = "2012-12-11"
+  s.description = "Takes Morse Code and translates it to text and vise versa.  Fall UW Ruby Class Final Project."
   s.email = "sugg.will@gmail.com"
+  s.executables = ["cw_parser_init.rb", "morsecode.txt", "morsecode.txt~"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -19,20 +20,28 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bin/cw_parser_init.rb",
+    "bin/morsecode.txt",
+    "cw_parser-0.0.1.gem",
+    "cw_parser.gemspec",
+    "lib/cw_parse_code.rb",
+    "lib/cw_parse_text.rb",
     "lib/cw_parser.rb",
-    "test/helper.rb",
+    "lib/test.txt",
+    "lib/test_code.txt",
+    "spec/cw_parser_spec.rb",
     "test/test_cw_parser.rb"
   ]
   s.homepage = "http://github.com/wsugg/cw_parser"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "Takes Morse Code and Translates it to Text and vise Versa"
-  s.executables << "cw_parser_init.rb"
+  s.summary = "Takes Morse Code and translates it to text and vise versa"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

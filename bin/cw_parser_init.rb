@@ -1,5 +1,6 @@
 #!usr/bin/env ruby
-#require "#{File.dirname(__FILE__)}./cw_parse_text.rb"
+#require "rubygems"
+#require "bundler/setup"
 require '../lib/cw_parse_text.rb'
 require '../lib/cw_parse_code.rb'
 
@@ -23,11 +24,11 @@ class CW_Parser
 
 	f = File.open("../bin/morsecode.txt", "r")
 	f.each{|l| l.split(/\=/); @morse_code.store(l[0],l[2..10].chomp)} 
-	#@morse_code.each{|i| puts i}
+	#@morse_code.each{|i| puts i} #for debugging
  end
 
  def translate_file(path="")
- 	if true == File.exist?(path)
+ 	 if true == File.exist?(path)
       puts "path: #{path}" 
       puts "mode= #{@mode}"
       ftranslate = File.read(path)
@@ -40,7 +41,8 @@ class CW_Parser
       	puts ftranslate.inspect
        	parse_code(ftranslate)
       end
-    end
+    else "#{path} does not exsist"
+   end
  end
 
 end
