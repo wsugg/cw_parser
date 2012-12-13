@@ -1,4 +1,4 @@
-require_realtive "../bin/cw_parser.rb"
+require '../lib/cw_parser.rb'
 
 
 describe CW_Parser do 
