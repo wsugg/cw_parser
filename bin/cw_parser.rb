@@ -27,24 +27,24 @@ class CW_Parser
 	#@morse_code.each{|i| puts i} #for debugging
  end
 
- def translate_file(path="")
- 	 if true == File.exist?(path)
-      puts "path: #{path}" 
-      puts "mode= #{@mode}"
-      ftranslate = File.read(path)
-      ftranslate.gsub!(/\n/, " ")
-    
-      if @mode == :text	
-       	puts ftranslate.inspect
-       	parse_text(ftranslate)
-      else 
-      	puts ftranslate.inspect
-       	parse_code(ftranslate)
-      end
-    else "#{path} does not exsist"
-   end
- end
+def translate_file(path="")
+if true == File.exist?(path)
+  puts "path: #{path}" 
+  puts "mode= #{@mode}"
+  ftranslate = File.read(path)
+  ftranslate.gsub!(/\n/, " ")
+else 
+  puts "#{path} does not exsist"
+end
 
+if @mode == :text	
+  puts ftranslate.inspect
+  parse_text(ftranslate)
+else 
+  puts ftranslate.inspect
+  parse_code(ftranslate)
+end
+end
 end
 
 

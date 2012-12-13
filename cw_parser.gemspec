@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2012-12-11"
   s.description = "Takes Morse Code and translates it to text and vise versa.  Fall UW Ruby Class Final Project."
   s.email = "sugg.will@gmail.com"
-  s.executables = ["cw_parser_init.rb", "morsecode.txt", "morsecode.txt~"]
+  s.executables = ["cw_parser.rb", "morsecode.txt", "morsecode.txt~"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "bin/cw_parser_init.rb",
+    "bin/cw_parser.rb",
     "bin/morsecode.txt",
     "cw_parser-0.0.1.gem",
     "cw_parser.gemspec",
