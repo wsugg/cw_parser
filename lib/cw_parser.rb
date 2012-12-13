@@ -1,9 +1,9 @@
 #!usr/bin/env ruby
+require "rubygems"
+require "bundler/setup"
 
 require_relative "../lib/cw_parse_text.rb"
 require_relative "../lib/cw_parse_code.rb"
-
-
 
 #args to cw_parser: text | code, file, filepath, play code sounds (implement sound later) 
 
