@@ -15,7 +15,7 @@ class CW_Parser
  attr_reader :morse_code
  attr_accessor :mode, :sound, :filepath 
 
- def initialize(mode=[:text],filepath="",sound="no")
+ def initialize(mode=:text,filepath="",sound="no")
 	@mode = mode
 	@filepath = filepath
 	@sound = sound
@@ -26,27 +26,27 @@ class CW_Parser
       "N" => '-.', "O" => '---', "P" => '.--.', "Q" => '--.-', "R" => '.-.', "S" => '...',
       "T" => '-', "U" => '..-', "V" => '...-', "W" => '.--', "X" => '-..-', "Y" => '-.--',
       "Z" => '--..', "1" => '.----', "2" => '..---', "3" => '...--', "4" => '....-', "5" => '.....',
-      "6" => '-....', "7" => '--...', "8" => '---..', "9" => '----.', "0" => '-----', " " => ' ', "" =>'', 
+      "6" => '-....', "7" => '--...', "8" => '---..', "9" => '----.', "0" => '-----', " " => ' ',
     }
 
  end
 
  def translate_file(path="")
   if true == File.exist?(path)
-  puts "path: #{path}" 
-  puts "mode= #{@mode}"
-  ftranslate = File.read(path)
-  ftranslate.gsub!(/\n/, " ")
+   puts "path: #{path}" 
+   puts "mode= #{@mode}"
+   ftranslate = File.read(path)
+   ftranslate.gsub!(/\n/, " ")
   else 
-  puts "#{path} does not exsist"
+   puts "#{path} does not exist"
   end
 
-  if @mode == :text	
-  puts ftranslate.inspect
-  parse_text(ftranslate)
+  if @mode == :text
+   puts ftranslate.inspect
+   parse_text(ftranslate)
   else 
-  puts ftranslate.inspect
-  parse_code(ftranslate)
+   puts ftranslate.inspect
+   parse_code(ftranslate)
   end
  end
 
