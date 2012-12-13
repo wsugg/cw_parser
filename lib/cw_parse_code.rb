@@ -3,7 +3,7 @@
 module CW_Parse_Code
 
  def parse_code(code_to_translate)
-  puts "code_to_translate: #{code_to_translate}"
+  #puts "code_to_translate: #{code_to_translate}"
   code_to_translate_ary = Array.new
   result_str = ""
 
