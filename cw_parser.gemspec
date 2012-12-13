@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/cw_parse_code.rb",
     "lib/cw_parse_text.rb",
     "lib/cw_parser.rb",
+    "lib/test.txt",
     "lib/test_code.txt",
     "spec/cw_parser_spec.rb",
     "test/test_cw_parser.rb"
