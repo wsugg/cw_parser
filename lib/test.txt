@@ -1,2 +1,0 @@
-This is the text to translate in the txt file
-this is the second line to translate

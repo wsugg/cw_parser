@@ -1,13 +1,14 @@
 #!usr/bin/env ruby
-#require "rubygems"
-#require "bundler/setup"
-require '../lib/cw_parse_text.rb'
-require '../lib/cw_parse_code.rb'
+
+require_relative "../lib/cw_parse_text.rb"
+require_relative "../lib/cw_parse_code.rb"
+
 
 
 #args to cw_parser: text | code, file, filepath, play code sounds (implement sound later) 
 
 class CW_Parser
+
  include CW_Parse_Text
  include CW_Parse_Code 
 
@@ -19,32 +20,36 @@ class CW_Parser
 	@filepath = filepath
 	@sound = sound
 
-	puts "filepath: #{filepath}" 
-	@morse_code = {}
+	@morse_code = { 
+      "A" => '.-', "B" => '-...', "C" => '-.-.', "D" => '-..', "E" => '.', "F" => '..-.', "G" => '--.',
+      "H" => '....', "I" => '..', "J" => '.---', "K" => '-.-', "L" => '.-..', "M" => '--',
+      "N" => '-.', "O" => '---', "P" => '.--.', "Q" => '--.-', "R" => '.-.', "S" => '...',
+      "T" => '-', "U" => '..-', "V" => '...-', "W" => '.--', "X" => '-..-', "Y" => '-.--',
+      "Z" => '--..', "1" => '.----', "2" => '..---', "3" => '...--', "4" => '....-', "5" => '.....',
+      "6" => '-....', "7" => '--...', "8" => '---..', "9" => '----.', "0" => '-----', " " => ' ', "" =>'', 
+    }
 
-	f = File.open("../bin/morsecode.txt", "r")
-	f.each{|l| l.split(/\=/); @morse_code.store(l[0],l[2..10].chomp)} 
-	#@morse_code.each{|i| puts i} #for debugging
  end
 
-def translate_file(path="")
-if true == File.exist?(path)
+ def translate_file(path="")
+  if true == File.exist?(path)
   puts "path: #{path}" 
   puts "mode= #{@mode}"
   ftranslate = File.read(path)
   ftranslate.gsub!(/\n/, " ")
-else 
+  else 
   puts "#{path} does not exsist"
-end
+  end
 
-if @mode == :text	
+  if @mode == :text	
   puts ftranslate.inspect
   parse_text(ftranslate)
-else 
+  else 
   puts ftranslate.inspect
   parse_code(ftranslate)
-end
-end
+  end
+ end
+
 end
 
 

@@ -5,16 +5,17 @@
 
 Gem::Specification.new do |s|
   s.name = "cw_parser"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["wsugg"]
-  s.date = "2012-12-11"
+  s.date = "2012-12-13"
   s.description = "Takes Morse Code and translates it to text and vise versa.  Fall UW Ruby Class Final Project."
   s.email = "sugg.will@gmail.com"
   s.executables = ["cw_parser.rb", "morsecode.txt", "morsecode.txt~"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
+    "README.md",
     "README.rdoc"
   ]
   s.files = [
@@ -22,6 +23,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
+    "README.md",
     "README.rdoc",
     "Rakefile",
     "VERSION",
@@ -31,7 +33,6 @@ Gem::Specification.new do |s|
     "cw_parser.gemspec",
     "lib/cw_parse_code.rb",
     "lib/cw_parse_text.rb",
-    "lib/cw_parser.rb",
     "lib/test.txt",
     "lib/test_code.txt",
     "spec/cw_parser_spec.rb",

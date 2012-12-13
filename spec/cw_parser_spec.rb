@@ -1,7 +1,5 @@
- require '~/Fall2012FinalProj/cw_parser/bin/cw_parser_init.rb'
-#puts File.dirname(__FILE__)
-#puts" #{File.dirname("/bin/cw_parser_init.rb")}"
-#puts require "#{File.dirname('../'__FILE__)}/cw_parser_init.rb"
+require_realtive '../bin/cw_parser.rb'
+
 
 describe CW_Parser do 
 	testfile = "../lib/test.txt"
